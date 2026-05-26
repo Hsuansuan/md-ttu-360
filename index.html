@@ -11,15 +11,46 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
         <style>
-            #panorama {
+            /* 💡 外層容器改為相對定位，讓左右箭頭可以漂浮在它上面 */
+            .panorama-container {
+                position: relative;
                 width: 100%;
                 height: 500px;
+            }
+            #panorama {
+                width: 100%;
+                height: 100%;
                 background: #f0f0f0;
             }
             .card-img-top {
                 height: 200px;
                 object-fit: cover;
             }
+            
+            /* 💡 左右切換箭頭的樣式 */
+            .nav-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1000;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                transition: background 0.2s;
+            }
+            .nav-btn:hover {
+                background: rgba(0, 0, 0, 0.8);
+            }
+            .nav-btn-left { left: 15px; }
+            .nav-btn-right { right: 15px; }
         </style>
     </head>
     
@@ -39,16 +70,16 @@
                     
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="尚志803專題教室_照片.JPG" alt="尚志803專題教室" />
+                            <img class="card-img-top" src="" alt="102" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">尚志803專題教室</h5>
-                                    <p class="text-muted small">這是一間專門提供給大三、大四進行專題討論與實作空間。</p>
+                                    <h5 class="fw-bolder">102</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('尚志803專題教室_照片.JPG', '尚志803專題教室')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -58,16 +89,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室2" />
+                            <img class="card-img-top" src="" alt="108A" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 02</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">108A</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 02')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('108A裡.JPG', '108A中.JPG', '108A外.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -77,16 +108,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室3" />
+                            <img class="card-img-top" src="" alt="206" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 03</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">206</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 03')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('206裡.JPG', '206中.JPG', '206外.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -96,16 +127,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室4" />
+                            <img class="card-img-top" src="" alt="207" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 04</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">207</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 04')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('207裡.JPG', '207中.JPG', '207外.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -115,16 +146,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室5" />
+                            <img class="card-img-top" src="" alt="208A" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 05</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">208A</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 05')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -134,16 +165,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室6" />
+                            <img class="card-img-top" src="" alt="208B" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 06</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">208B</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 06')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -153,16 +184,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室7" />
+                            <img class="card-img-top" src="" alt="502" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 07</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">502</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 07')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('502前.JPG', '502中.JPG', '502後.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -172,16 +203,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室8" />
+                            <img class="card-img-top" src="" alt="508A" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 08</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">508A</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 08')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('508A裡.JPG', '508A中.JPG', '508A外.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -191,16 +222,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室9" />
+                            <img class="card-img-top" src="" alt="508B" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 09</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">508B</h5>
+                                    <p class="text-muted small">說明</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 09')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -210,16 +241,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室10" />
+                            <img class="card-img-top" src="" alt="尚志專題801" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 10</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">尚志專題801</h5>
+                                    <p class="text-muted small">專門提供給大三、大四進行專題討論與實作空間。</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 10')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('尚志專題801.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -229,16 +260,16 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室11" />
+                            <img class="card-img-top" src="" alt="尚志專題803" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 11</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">尚志專題803</h5>
+                                    <p class="text-muted small">專門提供給大三、大四進行專題討論與實作空間。</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 11')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('尚志專題803.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -248,16 +279,35 @@
 
                     <div class="col mb-5">
                         <div class="card h-100">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="教室12" />
+                            <img class="card-img-top" src="" alt="尚志專題812" />
                             <div class="card-body p-4">
                                 <div class="text-center">
-                                    <h5 class="fw-bolder">校園教室 12</h5>
-                                    <p class="text-muted small">請在此處輸入關於這間教室的簡短介紹或用途說明。</p>
+                                    <h5 class="fw-bolder">尚志專題812</h5>
+                                    <p class="text-muted small">專門提供給大三、大四進行專題討論與實作空間。</p>
                                 </div>
                             </div>
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('這裡放照片檔名.JPG', '校園教室 12')">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('尚志專題812前.JPG', '尚志專題812中.JPG', '尚志專題812後.JPG')">
+                                        進入360°環景
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="" alt="攝影棚" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">攝影棚</h5>
+                                    <p class="text-muted small"></p>
+                                </div>
+                            </div>
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <button class="btn btn-outline-dark mt-auto" onclick="open360('攝影棚裡.JPG', '攝影棚外.JPG')">
                                         進入360°環景
                                     </button>
                                 </div>
@@ -277,7 +327,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-0">
-                        <div id="panorama"></div>
+                        <div class="panorama-container">
+                            <button class="nav-btn nav-btn-left" id="btnLeft" onclick="switchView('left')">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            
+                            <div id="panorama"></div>
+                            
+                            <button class="nav-btn nav-btn-right" id="btnRight" onclick="switchView('right')">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -290,43 +350,58 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
         <script>
-            /* 建立一個全域變數，用來記錄「目前畫面上正在播放的環景實例物件」，一開始預設裡面是空的 (null) */
             let viewerInstance = null;
+            
+            // 💡 用來暫存目前點開教室的兩張照片檔名
+            let currentLeftImage = "";
+            let currentRightImage = "";
 
-            /* 定義一個叫做 open360 的功能函式，當按鈕被點擊時會啟動，並接收傳進來的 (圖片檔名, 教室名稱) */
-            function open360(imageName, roomName) {
+            // 💡 渲染環景畫面的獨立函式
+            function renderPannellum(imgName) {
+                if(viewerInstance) { viewerInstance.destroy(); }
                 
-                /* 【指令1】去網頁上找出身份證為 'modalTitle' 的元素，把裡面的文字修改成傳進來的：教室名稱 + " - 360° 環景導覽" */
-                document.getElementById('modalTitle').innerText = roomName + " - 360° 環景導覽";
+                viewerInstance = pannellum.viewer('panorama', {
+                    "type": "equirectangular",
+                    "panorama": imgName,
+                    "autoLoad": true,
+                    "autoRotate": -1
+                });
+            }
+
+            // 💡 修改後的 open360 函式，多接收一個右邊的照片參數
+            function open360(leftImage, rightImage, roomName) {
                 
-                /* 【指令2】透過 Bootstrap 的內建指令，把網頁上那個隱藏的彈出視窗 (panoramaModal) 抓出來變成可控制的物件 */
+                // 將檔名存到全域變數，讓點擊左右箭頭時知道要換成誰
+                currentLeftImage = leftImage;
+                currentRightImage = rightImage;
+
+                document.getElementById('modalTitle').innerText = roomName + " - 360°環景導覽";
+                
+                // 💡 檢查是否有兩張照片，如果只有一張，就把左右箭頭隱藏起來
+                if (leftImage && rightImage) {
+                    document.getElementById('btnLeft').style.display = 'flex';
+                    document.getElementById('btnRight').style.display = 'flex';
+                } else {
+                    document.getElementById('btnLeft').style.display = 'none';
+                    document.getElementById('btnRight').style.display = 'none';
+                }
+
                 var myModal = new bootstrap.Modal(document.getElementById('panoramaModal'));
-                /* 控制該彈出視窗動態顯示出來 (秀在畫面上) */
                 myModal.show();
 
-                /* 【指令3】對彈出視窗掛上監聽器：當視窗完全滑入並顯示完畢時 ('shown.bs.modal')，才觸發裡面的動作。
-                            這樣做是為了避免視窗還在放大時就塞入環景圖片，導致圖片的長寬解析度抓錯而嚴重錯位。 */
                 document.getElementById('panoramaModal').addEventListener('shown.bs.modal', function () {
-                    
-                    /* 如果發現變數 viewerInstance 裡面有舊的東西（代表剛剛使用者有點過別間教室的環景），
-                       就立刻啟動 .destroy() 指令，把舊的環景殘留記憶徹底殺掉、清空畫布，避免記憶體塞爆 */
-                    if(viewerInstance) { viewerInstance.destroy(); }
-                    
-                    /* 呼叫 Pannellum 外掛，在網頁中 id 為 'panorama' 的空白地方，開始組裝、產生全新的 360 環景 */
-                    viewerInstance = pannellum.viewer('panorama', {
-                        /* 設定環景投影類型為等距長方投影 (equirectangular)，這是目前市面上最主流的 360 全景照片標準格式 */
-                        "type": "equirectangular",
-                        /* 將使用者剛剛點擊按鈕傳進來的照片檔案名稱 (imageName) 設定為這張環景的主照片來源 */
-                        "panorama": imageName,
-                        /* 設定為 true 代表照片載入完成後，不需再點擊，直接自動渲染並顯示出來 */
-                        "autoLoad": true,
-                        /* 設定自動旋轉速度為 -1（負數代表會緩慢向右自動旋轉，不想要自動轉的話可以改成 0） */
-                        "autoRotate": -1
-                    });
-                    
-                /* { once: true } 是一個進階保險設定，代表這個「視窗顯示完畢」的監聽器在執行完一次後，就立刻自我毀滅銷毀。
-                   如此一來，可以百分之百防範重複點擊時，後面疊加了一堆亂七八糟的重複指令，讓網站非常穩定！ */
+                    // 預設一進來先載入左邊（第一張）視角的照片
+                    renderPannellum(currentLeftImage);
                 }, { once: true });
+            }
+
+            // 💡 點擊左右箭頭時觸發的切換邏輯
+            function switchView(direction) {
+                if (direction === 'left' && currentLeftImage) {
+                    renderPannellum(currentLeftImage);
+                } else if (direction === 'right' && currentRightImage) {
+                    renderPannellum(currentRightImage);
+                }
             }
         </script>
     </body>
